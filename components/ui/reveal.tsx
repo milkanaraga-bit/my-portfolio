@@ -55,8 +55,7 @@ export function RevealText({
           <motion.span
             className={cn("block", lineClassName)}
             initial={{ y: "110%" }}
-            whileInView={{ y: "0%" }}
-            viewport={{ once: true, margin: "-60px" }}
+            animate={{ y: "0%" }}
             transition={{
               duration: 0.9,
               delay: 0.12 * i,

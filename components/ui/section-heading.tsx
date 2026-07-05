@@ -13,7 +13,7 @@ export function SectionHeading({
   className?: string;
 }) {
   return (
-    <div className={cn("mb-14 md:mb-20", className)}>
+    <div className={cn("mb-8 md:mb-12", className)}>
       <p className="mb-4 flex items-center gap-3 font-general text-xs font-semibold uppercase tracking-[0.25em] text-muted">
         <span className="h-2 w-2 rounded-full bg-accent" />
         {eyebrow}
