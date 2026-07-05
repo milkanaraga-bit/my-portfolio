@@ -65,7 +65,7 @@ export function Navbar() {
           <ThemeToggle />
           <Magnetic className="hidden md:block">
             <a
-              href="#contact"
+              href="mailto:milkanaraga@gmail.com"
               className="rounded-full bg-fg px-5 py-2.5 font-general text-sm font-semibold text-bg transition-colors hover:bg-accent hover:text-white"
             >
               Let&apos;s talk
@@ -106,7 +106,7 @@ export function Navbar() {
                 </motion.a>
               ))}
               <a
-                href="#contact"
+                href="mailto:milkanaraga@gmail.com"
                 onClick={() => setOpen(false)}
                 className="mt-3 rounded-full bg-fg px-5 py-3.5 text-center font-general font-semibold text-bg"
               >
