@@ -67,7 +67,7 @@ function Tool({ tool }: { tool: ToolTile }) {
 
 export function Expertise() {
   return (
-    <section id="expertise" className="relative bg-soft px-6 py-28 md:px-10 md:py-40">
+    <section id="expertise" className="relative px-6 py-28 md:px-10 md:py-40">
       <div className="mx-auto max-w-7xl">
         <SectionHeading eyebrow="Expertise" lines={["What I do", "best."]} />
 
