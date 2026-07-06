@@ -6,7 +6,6 @@ export const site = {
   phone: "+63 929 440 6436",
   phoneHref: "tel:+639294406436",
   linkedin: "https://www.linkedin.com/in/camille-naraga-8861a71b9",
-  github: "https://github.com/camillenaraga",
   resume: "/resume.pdf",
   heroBlurb:
     "Helping businesses automate repetitive work using AI, n8n, GoHighLevel, OpenAI, and custom workflows.",

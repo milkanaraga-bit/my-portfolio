@@ -1,6 +1,6 @@
 "use client";
 
-import { ArrowUp, Github, Linkedin, Mail } from "lucide-react";
+import { ArrowUp, Linkedin, Mail } from "lucide-react";
 import { Magnetic } from "@/components/ui/magnetic";
 import { site } from "@/lib/data";
 
@@ -18,7 +18,6 @@ export function Footer() {
           {[
             { href: `mailto:${site.email}`, icon: Mail, label: "Email" },
             { href: site.linkedin, icon: Linkedin, label: "LinkedIn" },
-            { href: site.github, icon: Github, label: "GitHub" },
           ].map(({ href, icon: Icon, label }) => (
             <Magnetic key={label} strength={0.3}>
               <a

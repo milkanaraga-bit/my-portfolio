@@ -14,14 +14,19 @@ const icons: Record<string, LucideIcon> = {
   trendingUp: TrendingUp,
 };
 
-/** Base and hover translate offsets for each card in the skewed fan, widest apart so hovers never collide. */
-const positions: { base: [number, number]; hover: [number, number] }[] = [
-  { base: [-232, -136], hover: [-124, -128] },
-  { base: [-116, -68], hover: [-62, -86] },
-  { base: [0, 0], hover: [0, -44] },
-  { base: [116, 68], hover: [62, -2] },
-  { base: [232, 136], hover: [124, 40] },
+/** Base translate offsets for each card in the skewed fan, widest apart so hovers never collide. Hover only lifts vertically. */
+const LIFT = 46;
+const bases: [number, number][] = [
+  [-232, -136],
+  [-116, -68],
+  [0, 0],
+  [116, 68],
+  [232, 136],
 ];
+const positions = bases.map(([x, y]) => ({
+  base: [x, y] as [number, number],
+  hover: [x, y - LIFT] as [number, number],
+}));
 
 export function Process() {
   const [hovered, setHovered] = useState<number | null>(null);

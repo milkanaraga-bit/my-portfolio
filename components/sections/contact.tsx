@@ -1,6 +1,6 @@
 "use client";
 
-import { Mail, Linkedin, Github, FileDown } from "lucide-react";
+import { Mail, Linkedin, FileDown } from "lucide-react";
 import { Magnetic } from "@/components/ui/magnetic";
 import { RevealText, Reveal } from "@/components/ui/reveal";
 import { site } from "@/lib/data";
@@ -8,7 +8,6 @@ import { site } from "@/lib/data";
 const actions = [
   { label: "Email", href: `mailto:${site.email}`, icon: Mail, primary: true },
   { label: "LinkedIn", href: site.linkedin, icon: Linkedin },
-  { label: "GitHub", href: site.github, icon: Github },
   { label: "Download Resume", href: site.resume, icon: FileDown, download: true },
 ];
 
