@@ -15,7 +15,7 @@ import {
 } from "lucide-react";
 import { SectionHeading } from "@/components/ui/section-heading";
 import { Reveal } from "@/components/ui/reveal";
-import { TiltCard } from "@/components/ui/tilt-card";
+import { GlowCard } from "@/components/ui/spotlight-card";
 import { expertise, type ToolTile } from "@/lib/data";
 
 const cardIcons: Record<string, LucideIcon> = { bot: Bot, workflow: Workflow, database: Database, code: Code };
@@ -76,7 +76,7 @@ export function Expertise() {
             const Icon = cardIcons[area.icon];
             return (
               <Reveal key={area.title} index={i}>
-                <TiltCard className="h-full rounded-3xl">
+                <GlowCard glowColor="orange" customSize className="group h-full rounded-3xl">
                   <div className="flex h-full flex-col rounded-3xl border border-line bg-bg p-7 transition-shadow duration-500 group-hover:shadow-2xl group-hover:shadow-black/5">
                     <div className="mb-8 flex h-12 w-12 items-center justify-center rounded-2xl bg-soft text-fg">
                       <Icon size={22} strokeWidth={1.8} />
@@ -89,7 +89,7 @@ export function Expertise() {
                       ))}
                     </div>
                   </div>
-                </TiltCard>
+                </GlowCard>
               </Reveal>
             );
           })}

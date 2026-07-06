@@ -4,7 +4,7 @@ import Image from "next/image";
 import { Maximize2 } from "lucide-react";
 import { SectionHeading } from "@/components/ui/section-heading";
 import { Reveal } from "@/components/ui/reveal";
-import { TiltCard } from "@/components/ui/tilt-card";
+import { GlowCard } from "@/components/ui/spotlight-card";
 import { useLightbox } from "@/components/ui/lightbox";
 import { projects } from "@/lib/data";
 import { cn } from "@/lib/utils";
@@ -26,7 +26,7 @@ export function Projects() {
                 index={i % 2}
                 className={cn("col-span-2", large ? "md:col-span-3" : "md:col-span-2")}
               >
-                <TiltCard className="h-full rounded-3xl">
+                <GlowCard glowColor="orange" customSize className="group h-full rounded-3xl">
                   <article
                     onClick={() => open(project.img, project.title)}
                     className="flex h-full cursor-zoom-in flex-col overflow-hidden rounded-3xl border border-line bg-bg transition-shadow duration-500 group-hover:shadow-2xl group-hover:shadow-black/10"
@@ -68,7 +68,7 @@ export function Projects() {
                       </div>
                     </div>
                   </article>
-                </TiltCard>
+                </GlowCard>
               </Reveal>
             );
           })}

@@ -4,7 +4,7 @@ import Image from "next/image";
 import { Award, Maximize2 } from "lucide-react";
 import { SectionHeading } from "@/components/ui/section-heading";
 import { Reveal } from "@/components/ui/reveal";
-import { TiltCard } from "@/components/ui/tilt-card";
+import { GlowCard } from "@/components/ui/spotlight-card";
 import { useLightbox } from "@/components/ui/lightbox";
 import { certifications } from "@/lib/data";
 
@@ -19,7 +19,7 @@ export function Certifications() {
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {certifications.map((cert, i) => (
             <Reveal key={cert.title} index={i % 3}>
-              <TiltCard className="h-full rounded-3xl">
+              <GlowCard glowColor="orange" customSize className="group h-full rounded-3xl">
                 <article
                   onClick={() => open(cert.img, cert.title)}
                   className="flex h-full cursor-zoom-in flex-col overflow-hidden rounded-3xl border border-line bg-bg transition-shadow duration-500 group-hover:shadow-2xl group-hover:shadow-black/10"
@@ -51,7 +51,7 @@ export function Certifications() {
                     </p>
                   </div>
                 </article>
-              </TiltCard>
+              </GlowCard>
             </Reveal>
           ))}
         </div>
