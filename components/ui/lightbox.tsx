@@ -44,7 +44,7 @@ export function LightboxProvider({ children }: { children: React.ReactNode }) {
           role="dialog"
           aria-modal="true"
           onClick={close}
-          className="fixed inset-0 z-[100] flex items-start justify-center overflow-auto bg-black/[0.82] p-6 backdrop-blur-md md:p-12"
+          className="fixed inset-0 z-[100] flex items-start justify-center overflow-auto bg-black/[0.88] p-3 backdrop-blur-md md:p-6"
           style={{ cursor: "zoom-out" }}
         >
           <button
@@ -59,7 +59,7 @@ export function LightboxProvider({ children }: { children: React.ReactNode }) {
             src={image.src}
             alt={image.alt}
             onClick={(e) => e.stopPropagation()}
-            className="block h-auto w-full max-w-5xl cursor-default rounded-2xl shadow-2xl shadow-black/60"
+            className="block h-auto w-full max-w-[1700px] cursor-default rounded-xl shadow-2xl shadow-black/60"
           />
         </div>
       )}
