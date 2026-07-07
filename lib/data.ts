@@ -230,8 +230,8 @@ export const websites = [
     img: "/site-villa.jpg",
     name: "Villa de Eduardo",
     desc: "A staycation villa site with an airy editorial gallery, amenities, and direct booking.",
-    url: "https://staycation-snap-site.lovable.app",
-    urlLabel: "staycation-snap-site.lovable.app",
+    url: "https://villadeeduardo.lovable.app",
+    urlLabel: "villadeeduardo.lovable.app",
     tag: "Staycation & booking",
   },
 ];
