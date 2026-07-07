@@ -3,11 +3,10 @@
 import Image from "next/image";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { ArrowDownRight, ArrowUpRight, MapPin } from "lucide-react";
-import { useEffect, useRef, useState } from "react";
-import { useTheme } from "next-themes";
+import { useRef } from "react";
 import { Magnetic } from "@/components/ui/magnetic";
 import { Blobs } from "@/components/ui/blobs";
-import { site } from "@/lib/data";
+import { site, stats } from "@/lib/data";
 
 export function Hero() {
   const ref = useRef<HTMLElement>(null);
@@ -15,46 +14,27 @@ export function Hero() {
     target: ref,
     offset: ["start start", "end start"],
   });
-  const bgY = useTransform(scrollYProgress, [0, 1], ["0%", "30%"]);
-  const portraitY = useTransform(scrollYProgress, [0, 1], ["0%", "12%"]);
   const fade = useTransform(scrollYProgress, [0, 0.8], [1, 0]);
-
-  const { resolvedTheme } = useTheme();
-  const [mounted, setMounted] = useState(false);
-  useEffect(() => setMounted(true), []);
-  const isDark = mounted && resolvedTheme === "dark";
-  const portraitSrc = isDark ? "/portrait-dark.png" : "/portrait.jpg";
 
   return (
     <section
       id="top"
       ref={ref}
-      className="relative flex min-h-svh items-center overflow-hidden pt-28 md:pt-32"
+      className="relative flex min-h-svh items-center overflow-hidden pb-16 pt-28 md:pt-32"
     >
       <Blobs />
 
-      {/* Giant background typography, parallaxed behind the portrait */}
-      <motion.div
-        aria-hidden
-        style={{ y: bgY }}
-        className="pointer-events-none absolute inset-x-0 top-[16%] z-0 select-none text-center md:top-[14%]"
-      >
-        <span className="text-stroke font-display text-[24vw] font-bold uppercase leading-none tracking-tighter md:text-[19vw]">
-          Automate
-        </span>
-      </motion.div>
-
       <motion.div
         style={{ opacity: fade }}
-        className="relative z-10 mx-auto grid w-full max-w-7xl items-center gap-14 px-6 md:grid-cols-2 md:gap-8 md:px-10"
+        className="relative z-10 mx-auto grid w-full max-w-[1400px] items-center gap-12 px-6 md:px-10 lg:grid-cols-[1.05fr_minmax(300px,430px)_1.05fr] lg:gap-10"
       >
         {/* Left — intro */}
-        <div className="order-2 md:order-1">
+        <div className="order-2 lg:order-1">
           <motion.p
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2, duration: 0.7 }}
-            className="mb-6 flex items-center gap-2 font-general text-xs font-semibold uppercase tracking-[0.25em] text-muted"
+            className="mb-5 flex items-center gap-2 font-general text-xs font-semibold uppercase tracking-[0.25em] text-muted"
           >
             <MapPin size={13} className="text-accent" />
             {site.location}
@@ -69,7 +49,7 @@ export function Hero() {
             {site.role}
           </motion.p>
 
-          <h1 className="font-display text-6xl font-bold leading-[0.92] tracking-tighter sm:text-7xl md:text-[6.2rem]">
+          <h1 className="font-display text-6xl font-bold leading-[0.92] tracking-tighter md:text-7xl lg:text-[4.2rem] xl:text-[4.8rem]">
             Camille
             <br />
             <span className="text-accent">Naraga</span>
@@ -79,7 +59,7 @@ export function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.55, duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-            className="mt-7 max-w-md text-base leading-relaxed text-muted md:text-lg"
+            className="mt-6 max-w-md text-base leading-relaxed text-muted md:text-lg"
           >
             {site.heroBlurb}
           </motion.p>
@@ -88,7 +68,7 @@ export function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.7, duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-            className="mt-9 flex flex-wrap items-center gap-4"
+            className="mt-8 flex flex-wrap items-center gap-4"
           >
             <Magnetic>
               <a
@@ -117,40 +97,94 @@ export function Hero() {
           </motion.div>
         </div>
 
-        {/* Right — portrait overlapping the giant type */}
+        {/* Center — cutout portrait with the giant name behind it */}
         <motion.div
-          style={{ y: portraitY }}
-          className="order-1 md:order-2 md:justify-self-end"
+          initial={{ opacity: 0, scale: 0.95, y: 40 }}
+          animate={{ opacity: 1, scale: 1, y: 0 }}
+          transition={{ delay: 0.35, duration: 1, ease: [0.22, 1, 0.36, 1] }}
+          className="relative order-1 mx-auto w-[min(78vw,430px)] lg:order-2"
         >
-          <motion.div
-            initial={{ opacity: 0, scale: 0.94, y: 40 }}
-            animate={{ opacity: 1, scale: 1, y: 0 }}
-            transition={{ delay: 0.35, duration: 1, ease: [0.22, 1, 0.36, 1] }}
-            className="relative mx-auto w-64 animate-float-slower sm:w-80 md:w-[24rem]"
+          {/* giant background name */}
+          <div
+            aria-hidden
+            className="pointer-events-none absolute left-1/2 top-1/2 z-0 w-[96vw] -translate-x-1/2 -translate-y-1/2 select-none text-center lg:w-[88vw]"
           >
-            <div className="absolute -inset-4 -z-10 rounded-[2rem] bg-accent/10 blur-2xl" />
-            <div className="aspect-[4/5] overflow-hidden rounded-[2rem] border border-line bg-soft shadow-2xl shadow-black/10 transition-colors duration-500">
-              <Image
-                key={portraitSrc}
-                src={portraitSrc}
-                alt="Portrait of Camille Naraga"
-                width={640}
-                height={800}
-                priority
-                className="h-full w-full object-cover object-top"
-              />
-            </div>
-          </motion.div>
+            <span className="text-stroke block whitespace-nowrap font-display text-[clamp(64px,11.5vw,168px)] font-bold uppercase leading-[0.88] tracking-tighter">
+              Camille
+            </span>
+            <span className="text-stroke block whitespace-nowrap font-display text-[clamp(64px,11.5vw,168px)] font-bold uppercase leading-[0.88] tracking-tighter">
+              Naraga
+            </span>
+          </div>
+
+          {/* soft glow */}
+          <div className="absolute inset-x-8 bottom-0 top-16 z-0 rounded-full bg-accent/15 blur-3xl" />
+
+          <Image
+            src="/portrait-cutout.webp"
+            alt="Portrait of Camille Naraga"
+            width={880}
+            height={1173}
+            priority
+            className="relative z-10 h-auto w-full [mask-image:linear-gradient(to_bottom,black_92%,transparent)]"
+          />
         </motion.div>
+
+        {/* Right — about */}
+        <div className="order-3">
+          <motion.p
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.45, duration: 0.7 }}
+            className="mb-5 flex items-center gap-3 font-general text-xs font-semibold uppercase tracking-[0.25em] text-muted"
+          >
+            <span className="h-2 w-2 rounded-full bg-accent" />
+            About
+          </motion.p>
+
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.55, duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+            className="font-display text-[15px] font-medium leading-[1.75] tracking-[-0.005em] md:text-base"
+          >
+            {site.aboutStatement}
+          </motion.p>
+
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.68, duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+            className="mt-5 font-general text-[13px] text-muted"
+          >
+            {site.education}
+          </motion.p>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.8, duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+            className="mt-7 flex gap-10 border-t border-line pt-6"
+          >
+            {stats.map((stat) => (
+              <div key={stat.label}>
+                <p className="font-display text-4xl font-bold text-accent md:text-[2.6rem]">
+                  {stat.value}
+                </p>
+                <p className="mt-1 font-general text-sm text-muted">{stat.label}</p>
+              </div>
+            ))}
+          </motion.div>
+        </div>
       </motion.div>
 
       {/* Scroll hint */}
       <motion.a
-        href="#about"
+        href="#expertise"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1.4 }}
-        className="absolute bottom-8 left-1/2 hidden -translate-x-1/2 flex-col items-center gap-2 font-general text-[10px] uppercase tracking-[0.3em] text-muted md:flex"
+        className="absolute bottom-6 left-1/2 hidden -translate-x-1/2 flex-col items-center gap-2 font-general text-[10px] uppercase tracking-[0.3em] text-muted lg:flex"
       >
         Scroll
         <span className="block h-10 w-px overflow-hidden bg-line">
