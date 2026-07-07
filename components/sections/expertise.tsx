@@ -86,18 +86,17 @@ export function Expertise() {
         <div>
           {expertise.map((area, i) => (
             <Reveal key={area.title} index={i % 2}>
-              <div className="group relative grid gap-5 overflow-hidden border-t border-line px-2 py-9 transition-colors duration-500 last:border-b hover:bg-soft md:grid-cols-[64px_1.15fr_auto] md:items-center md:gap-8 md:px-6 md:py-12">
+              <div className="group relative grid gap-5 border-t border-line px-2 py-9 transition-colors duration-500 last:border-b hover:bg-soft md:grid-cols-[64px_1.15fr_auto] md:items-center md:gap-8 md:px-6 md:py-12">
                 {/* accent spine */}
                 <span
                   aria-hidden
                   className="absolute left-0 top-0 h-full w-[3px] origin-top scale-y-0 bg-accent transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-y-100"
                 />
-                {/* ghost index watermark */}
-                <span
-                  aria-hidden
-                  className="text-stroke pointer-events-none absolute -right-4 top-1/2 hidden -translate-y-1/2 select-none font-display text-[9rem] font-bold leading-none opacity-0 transition-all duration-700 group-hover:-right-2 group-hover:opacity-60 lg:block"
-                >
-                  {String(i + 1).padStart(2, "0")}
+                {/* ghost index watermark, clipped in its own layer so tooltips stay visible */}
+                <span aria-hidden className="pointer-events-none absolute inset-0 hidden overflow-hidden lg:block">
+                  <span className="text-stroke absolute -right-4 top-1/2 -translate-y-1/2 select-none font-display text-[9rem] font-bold leading-none opacity-0 transition-all duration-700 group-hover:-right-2 group-hover:opacity-60">
+                    {String(i + 1).padStart(2, "0")}
+                  </span>
                 </span>
 
                 <span className="font-display text-sm font-bold tracking-widest text-muted transition-colors duration-300 group-hover:text-accent">

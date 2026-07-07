@@ -104,16 +104,16 @@ export function Hero() {
           transition={{ delay: 0.35, duration: 1, ease: [0.22, 1, 0.36, 1] }}
           className="relative order-1 mx-auto w-[min(78vw,430px)] lg:order-2"
         >
-          {/* giant background name */}
+          {/* giant background title filling the space behind the portrait */}
           <div
             aria-hidden
-            className="pointer-events-none absolute left-1/2 top-1/2 z-0 w-[96vw] -translate-x-1/2 -translate-y-1/2 select-none text-center lg:w-[88vw]"
+            className="pointer-events-none absolute left-1/2 top-1/2 z-0 w-screen -translate-x-1/2 -translate-y-1/2 select-none text-center"
           >
-            <span className="text-stroke block whitespace-nowrap font-display text-[clamp(64px,11.5vw,168px)] font-bold uppercase leading-[0.88] tracking-tighter">
-              Camille
+            <span className="text-stroke block whitespace-nowrap font-display text-[clamp(72px,13.5vw,200px)] font-bold uppercase leading-[0.9] tracking-tighter">
+              Automation
             </span>
-            <span className="text-stroke block whitespace-nowrap font-display text-[clamp(64px,11.5vw,168px)] font-bold uppercase leading-[0.88] tracking-tighter">
-              Naraga
+            <span className="text-stroke block whitespace-nowrap font-display text-[clamp(72px,13.5vw,200px)] font-bold uppercase leading-[0.9] tracking-tighter">
+              Specialist
             </span>
           </div>
 
