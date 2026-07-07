@@ -193,6 +193,20 @@ export const projects = [
     desc: "One workflow routes new sheet updates straight to the right Slack channel; the other watches the inbox, analyzes and renames email attachments, uploads them to Drive, and logs everything automatically.",
     tags: ["Make", "Google Sheets", "Slack", "Gmail", "Google Drive"],
   },
+  {
+    img: "/proj-ai-calling.png",
+    kicker: "n8n + Vapi",
+    title: "Your AI sales rep that never sleeps",
+    desc: "A lead fills your form and the AI calls them in seconds — introducing the business, qualifying, and pinging the team in Slack only when a human is needed. Anyone who didn't pick up gets re-called automatically every morning.",
+    tags: ["n8n", "Vapi", "Google Forms", "Google Sheets", "Slack"],
+  },
+  {
+    img: "/proj-tiktok-video.webp",
+    kicker: "n8n + fal.ai",
+    title: "Product photo → TikTok video, on autopilot",
+    desc: "Drop a product image in Drive and the workflow generates three AI video styles, has Gemini score and pick the winner, and publishes it straight to TikTok — no editing, no manual posting.",
+    tags: ["n8n", "fal.ai", "Gemini", "TikTok API", "Google Drive"],
+  },
 ];
 
 export const certifications = [
