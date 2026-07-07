@@ -209,6 +209,33 @@ export const projects = [
   },
 ];
 
+export const websites = [
+  {
+    img: "/site-healing.jpg",
+    name: "Healing Hearts Beyond Borders",
+    desc: "A global wellness & healing initiative — cinematic hero, editorial serif type, and a warm, immersive mood.",
+    url: "https://healingheartsbeyondborders.org",
+    urlLabel: "healingheartsbeyondborders.org",
+    tag: "Wellness initiative",
+  },
+  {
+    img: "/site-elprimo.jpg",
+    name: "El Primo Carwash",
+    desc: "Bold dark-and-yellow site for a Davao carwash — services, packages, quotes, and real customer reviews.",
+    url: "https://elprimo.lovable.app",
+    urlLabel: "elprimo.lovable.app",
+    tag: "Local business",
+  },
+  {
+    img: "/site-villa.jpg",
+    name: "Villa de Eduardo",
+    desc: "A staycation villa site with an airy editorial gallery, amenities, and direct booking.",
+    url: "https://staycation-snap-site.lovable.app",
+    urlLabel: "staycation-snap-site.lovable.app",
+    tag: "Staycation & booking",
+  },
+];
+
 export const certifications = [
   {
     img: "/cert-ghl.png",
