@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Space_Grotesk, Inter } from "next/font/google";
+import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 import { ThemeProvider } from "@/components/providers/theme-provider";
 import { SmoothScroll } from "@/components/providers/smooth-scroll";
@@ -21,7 +22,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://camillenaraga.com"), // TODO: replace with your deployed domain
+  metadataBase: new URL("https://camillenaraga.site"),
   title: "Camille Naraga — AI Automation Specialist",
   description:
     "AI automation for modern businesses. Camille Naraga builds AI-powered workflows with n8n, OpenAI, Claude, and GoHighLevel that save companies hundreds of hours.",
@@ -34,13 +35,17 @@ export const metadata: Metadata = {
     title: "Camille Naraga — AI Automation Specialist",
     description:
       "Building AI-powered workflows that save businesses time, reduce manual work, and scale operations.",
+    url: "https://camillenaraga.site",
+    siteName: "Camille Naraga",
     type: "website",
     locale: "en_US",
+    images: [{ url: "/og.jpg", width: 1200, height: 630, alt: "Camille Naraga — AI Automation Specialist" }],
   },
   twitter: {
     card: "summary_large_image",
     title: "Camille Naraga — AI Automation Specialist",
     description: "AI automation for modern businesses.",
+    images: ["/og.jpg"],
   },
   robots: { index: true, follow: true },
 };
@@ -79,6 +84,7 @@ export default function RootLayout({
             </SmoothScroll>
           </LightboxProvider>
         </ThemeProvider>
+        <Analytics />
       </body>
     </html>
   );
