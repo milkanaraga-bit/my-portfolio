@@ -36,8 +36,9 @@ export function Process() {
       <div className="mx-auto max-w-5xl">
         <SectionHeading eyebrow="Process" lines={["From chaos", "to clockwork."]} />
 
+        {/* Desktop / tablet — the skewed diagonal fan */}
         <div
-          className="relative mt-2 grid min-h-[460px] place-items-center md:min-h-[600px]"
+          className="relative mt-2 hidden min-h-[460px] place-items-center md:grid md:min-h-[600px]"
           style={{ gridTemplateAreas: "'stack'" }}
         >
           {processSteps.map((step, i) => {
@@ -54,7 +55,7 @@ export function Process() {
                 <div
                   onMouseEnter={() => setHovered(i)}
                   onMouseLeave={() => setHovered(null)}
-                  className="flex h-[158px] w-[280px] flex-col justify-between overflow-hidden rounded-2xl border-2 bg-bg p-4 transition-[transform,filter,border-color,box-shadow] duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] sm:w-[380px] sm:p-[18px_22px]"
+                  className="flex h-[158px] w-[380px] flex-col justify-between overflow-hidden rounded-2xl border-2 bg-bg p-[18px_22px] transition-[transform,filter,border-color,box-shadow] duration-700 ease-[cubic-bezier(0.22,1,0.36,1)]"
                   style={{
                     transform: `skewY(-8deg) translate(${x}px, ${y}px)`,
                     filter: grayscale ? "grayscale(1)" : "grayscale(0)",
@@ -77,6 +78,38 @@ export function Process() {
                   <p className="font-general text-xs font-semibold uppercase tracking-[0.1em] text-muted">
                     Step {step.step}
                   </p>
+                </div>
+              </Reveal>
+            );
+          })}
+        </div>
+
+        {/* Mobile — a plain vertical stack, no overlap, normal scroll */}
+        <div className="flex flex-col gap-4 md:hidden">
+          {processSteps.map((step, i) => {
+            const Icon = icons[step.icon];
+            const isLast = i === processSteps.length - 1;
+            return (
+              <Reveal key={step.step} index={i % 3}>
+                <div
+                  className="flex items-start gap-4 rounded-2xl border-2 bg-bg p-5"
+                  style={{
+                    borderColor: isLast ? "rgba(255,90,60,0.55)" : "var(--line)",
+                    boxShadow: "0 14px 34px -18px rgba(0,0,0,0.22)",
+                  }}
+                >
+                  <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-accent text-white">
+                    <Icon size={16} />
+                  </span>
+                  <div className="min-w-0">
+                    <div className="flex items-baseline gap-2">
+                      <p className="font-display text-lg font-bold text-accent">{step.title}</p>
+                      <span className="font-general text-[11px] font-semibold uppercase tracking-[0.1em] text-muted">
+                        Step {step.step}
+                      </span>
+                    </div>
+                    <p className="mt-1.5 text-[15px] leading-snug text-fg">{step.text}</p>
+                  </div>
                 </div>
               </Reveal>
             );

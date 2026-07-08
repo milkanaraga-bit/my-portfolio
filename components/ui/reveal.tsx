@@ -12,25 +12,22 @@ const rise: Variants = {
   }),
 };
 
-/** Fade + rise into view. Pass `index` for staggering within a group. */
+/** Fade + rise into view on mount. Pass `index` for staggering within a group. */
 export function Reveal({
   children,
   index = 0,
   className,
-  once = true,
 }: {
   children: React.ReactNode;
   index?: number;
   className?: string;
-  once?: boolean;
 }) {
   return (
     <motion.div
       variants={rise}
       custom={index}
       initial="hidden"
-      whileInView="visible"
-      viewport={{ once, margin: "-80px" }}
+      animate="visible"
       className={className}
     >
       {children}
