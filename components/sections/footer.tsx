@@ -1,8 +1,10 @@
 "use client";
 
-import { ArrowUp, Linkedin, Mail } from "lucide-react";
+import { ArrowUp, Linkedin, Mail, Facebook, Instagram, Briefcase } from "lucide-react";
 import { Magnetic } from "@/components/ui/magnetic";
-import { site } from "@/lib/data";
+import { site, socials } from "@/lib/data";
+
+const socialIcons = { facebook: Facebook, instagram: Instagram, upwork: Briefcase };
 
 export function Footer() {
   const scrollTop = () => window.scrollTo({ top: 0, behavior: "smooth" });
@@ -18,6 +20,7 @@ export function Footer() {
           {[
             { href: `mailto:${site.email}`, icon: Mail, label: "Email" },
             { href: site.linkedin, icon: Linkedin, label: "LinkedIn" },
+            ...socials.map(({ href, icon, label }) => ({ href, icon: socialIcons[icon], label })),
           ].map(({ href, icon: Icon, label }) => (
             <Magnetic key={label} strength={0.3}>
               <a

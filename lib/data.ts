@@ -7,6 +7,8 @@ export const site = {
   phoneHref: "tel:+639294406436",
   linkedin: "https://www.linkedin.com/in/camille-naraga-8861a71b9",
   resume: "/resume.pdf",
+  driveProjects:
+    "https://drive.google.com/drive/folders/1uBTeJoQtio_p5gcWMRknmh494SzXDgnD?usp=sharing",
   heroBlurb:
     "Helping businesses automate repetitive work using AI, n8n, GoHighLevel, OpenAI, and custom workflows.",
   aboutStatement:
@@ -14,6 +16,12 @@ export const site = {
   education:
     "BS in Customs Administration — Holy Cross of Davao College (2021–2025)",
 };
+
+export const socials = [
+  { label: "Facebook", href: "https://www.facebook.com/profile.php?id=100074154381972", icon: "facebook" },
+  { label: "Instagram", href: "https://www.instagram.com/camillesnaraga", icon: "instagram" },
+  { label: "Upwork", href: "https://www.upwork.com/freelancers/~01d005c48e2b4ffad8", icon: "upwork" },
+] as const;
 
 export const stats = [
   { value: "100s", label: "of hours saved" },

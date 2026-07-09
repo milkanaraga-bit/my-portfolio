@@ -1,12 +1,12 @@
 "use client";
 
 import Image from "next/image";
-import { Maximize2 } from "lucide-react";
+import { ArrowUpRight, FolderOpen, Maximize2 } from "lucide-react";
 import { SectionHeading } from "@/components/ui/section-heading";
 import { Reveal } from "@/components/ui/reveal";
 import { GlowCard } from "@/components/ui/spotlight-card";
 import { useLightbox } from "@/components/ui/lightbox";
-import { projects } from "@/lib/data";
+import { projects, site } from "@/lib/data";
 import { cn } from "@/lib/utils";
 
 export function Projects() {
@@ -73,6 +73,34 @@ export function Projects() {
             );
           })}
         </div>
+
+        <Reveal className="mt-6">
+          <GlowCard glowColor="orange" customSize className="group rounded-3xl">
+            <a
+              href={site.driveProjects}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center justify-between gap-6 rounded-3xl border border-line bg-bg p-8 transition-shadow duration-500 hover:shadow-2xl hover:shadow-black/10"
+            >
+              <div className="flex items-center gap-5">
+                <span className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-soft text-accent">
+                  <FolderOpen size={24} />
+                </span>
+                <div>
+                  <h3 className="font-display text-xl font-bold tracking-tight">
+                    See every project
+                  </h3>
+                  <p className="mt-1 text-sm leading-relaxed text-muted">
+                    Browse the full archive on Google Drive.
+                  </p>
+                </div>
+              </div>
+              <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-line text-muted transition-colors group-hover:border-accent group-hover:text-accent">
+                <ArrowUpRight size={18} />
+              </span>
+            </a>
+          </GlowCard>
+        </Reveal>
       </div>
     </section>
   );

@@ -1,15 +1,17 @@
 "use client";
 
-import { Mail, Linkedin, FileDown } from "lucide-react";
+import { Mail, Linkedin, FileDown, Facebook, Instagram, Briefcase } from "lucide-react";
 import { Magnetic } from "@/components/ui/magnetic";
 import { RevealText, Reveal } from "@/components/ui/reveal";
-import { site } from "@/lib/data";
+import { site, socials } from "@/lib/data";
 
 const actions = [
   { label: "Email", href: `mailto:${site.email}`, icon: Mail, primary: true },
   { label: "LinkedIn", href: site.linkedin, icon: Linkedin },
   { label: "Download Resume", href: site.resume, icon: FileDown, download: true },
 ];
+
+const socialIcons = { facebook: Facebook, instagram: Instagram, upwork: Briefcase };
 
 export function Contact() {
   return (
@@ -74,6 +76,27 @@ export function Contact() {
                 </a>
               </Magnetic>
             ))}
+          </div>
+        </Reveal>
+
+        <Reveal className="mt-8">
+          <div className="flex items-center justify-center gap-3">
+            {socials.map(({ label, href, icon }) => {
+              const Icon = socialIcons[icon];
+              return (
+                <Magnetic key={label} strength={0.3}>
+                  <a
+                    href={href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={label}
+                    className="flex h-11 w-11 items-center justify-center rounded-full border border-line text-muted transition-colors hover:border-accent hover:text-accent"
+                  >
+                    <Icon size={17} />
+                  </a>
+                </Magnetic>
+              );
+            })}
           </div>
         </Reveal>
 
