@@ -242,6 +242,14 @@ export const websites = [
     urlLabel: "villadeeduardo.lovable.app",
     tag: "Staycation & booking",
   },
+  {
+    img: "/site-splitbill.jpg",
+    name: "SplitBill PH",
+    desc: "Bill-splitting app for Filipino barkadas — tracks shared expenses, calculates who owes what, and generates GCash-ready payment summaries.",
+    url: "https://barkada-settle.lovable.app",
+    urlLabel: "barkada-settle.lovable.app",
+    tag: "Fintech / utility app",
+  },
 ];
 
 export const certifications = [
