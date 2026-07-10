@@ -7,6 +7,8 @@ export const site = {
   phoneHref: "tel:+639294406436",
   linkedin: "https://www.linkedin.com/in/camille-naraga-8861a71b9",
   resume: "/resume.pdf",
+  driveProjects:
+    "https://drive.google.com/drive/folders/1uBTeJoQtio_p5gcWMRknmh494SzXDgnD?usp=sharing",
   heroBlurb:
     "Helping businesses automate repetitive work using AI, n8n, GoHighLevel, OpenAI, and custom workflows.",
   aboutStatement:
@@ -14,6 +16,12 @@ export const site = {
   education:
     "BS in Customs Administration — Holy Cross of Davao College (2021–2025)",
 };
+
+export const socials = [
+  { label: "Facebook", href: "https://www.facebook.com/profile.php?id=100074154381972", icon: "facebook" },
+  { label: "Instagram", href: "https://www.instagram.com/camillesnaraga", icon: "instagram" },
+  { label: "Upwork", href: "https://www.upwork.com/freelancers/~01d005c48e2b4ffad8", icon: "upwork" },
+] as const;
 
 export const stats = [
   { value: "100s", label: "of hours saved" },
@@ -352,26 +360,26 @@ export const skills = [
 ];
 
 export const testimonialsRaw: { name: string; text: string }[] = [
-  ["Sarah Mitchell", "Camille completely transformed one of our repetitive workflows into a fully automated process. We went from spending hours doing manual tasks to barely touching them. Communication was excellent throughout the project."],
-  ["Mark Reyes", "Sobrang dali kausap at marunong talagang makinig sa kailangan ng client. Hindi lang niya ginawa ang request namin, nagbigay pa siya ng mas magandang solution."],
-  ["Jessica Lee", "Amazing work! Fast delivery and everything worked exactly as promised."],
-  ["Jessa Villanueva", "Professional kaayo. Bisan daghan mi ug revisions, patient gihapon siya ug gi-explain tanan clearly."],
-  ["Michael Brown", "I was honestly surprised by how smooth everything turned out. The AI automation integrated with our CRM without any issues, and it's been running flawlessly ever since."],
-  ["Anna Garcia", "Napaka-responsive at laging nagbibigay ng updates. Hindi kami nangapa sa progress ng project dahil alam namin ang nangyayari every step of the way."],
-  ["David Wilson", "Reliable, knowledgeable, and easy to work with. I'd definitely hire Camille again."],
-  ["Rico Fernandez", "Nindot kaayo ang output. Makita jud nimo nga kabalo siya sa iyang gihimo, dili lang basta nag-follow ug tutorial."],
-  ["Emily Rodriguez", "Camille helped us automate lead management inside GoHighLevel. It reduced our response time dramatically, and our team can now focus on closing deals instead of manual work."],
-  ["Jenny Santos", "Ang ganda ng workflow na ginawa niya. Mas organized na ang operations namin at hindi na kami paulit-ulit ng trabaho."],
-  ["Ryan Cooper", "Working with Camille was stress-free. Every concern I had was addressed quickly, and the final product exceeded expectations."],
-  ["Mae Lim", "Dali ra kaayo siya kastorya ug maayo mohatag ug recommendations. Kabalo siya unsay mas effective para sa negosyo."],
-  ["Daniel Scott", "Excellent communication from start to finish. The project was delivered ahead of schedule, and everything was documented properly."],
-  ["Carlo Dela Cruz", "Sa totoo lang, hindi ko akalaing ganoon kalaki ang matitipid naming oras. Yung dating ginagawa ng staff namin araw-araw, automatic na ngayon."],
-  ["Olivia Harris", "Camille has a great eye for detail. Even small issues that I overlooked were caught and fixed before launch."],
-  ["Karen Flores", "Satisfied kaayo mi sa serbisyo. Human sa project, gitabangan pa mi niya sa mga gamay nga adjustments without any hassle."],
-  ["Chris Anderson", "Very professional and dependable. It's rare to find someone who combines technical skills with great communication."],
-  ["Michelle Ramos", "Isa sa pinakamagandang experience namin sa pag-hire ng freelancer. Mabilis, magaling, at marunong mag-adjust sa changes namin."],
-  ["James Carter", "Camille didn't just build what we asked for—she suggested improvements that made the entire system better. That's the kind of initiative every client hopes for."],
-  ["Bryan Torres", "Grabe ka smooth ang collaboration. Paspas mo-reply, maayo ang quality sa work, ug makita jud nga passionate siya sa automation. Highly recommended!"],
+  ["Sarah Mitchell", "Camille took a workflow that used to eat three hours of our day and turned it into something that just runs. She explained every step clearly, and by week two we weren't thinking about it anymore."],
+  ["Mark Reyes", "Paspas kaayo mutubag ug klaro mangutana sa akong gikinahanglan. Solid gyud."],
+  ["Jessica Lee", "Fast, clean, exactly what we asked for."],
+  ["Jessa Villanueva", "Daghan mi ug revisions pero wa gyud siya naglagot — gi-explain jud niya tanan hangtod nasabtan namo. Ang result mas maayo pa sa gi-expect namo."],
+  ["Michael Brown", "Our CRM automation hasn't broken once since she built it. That alone says a lot."],
+  ["Anna Garcia", "Sobrang responsive, updated kami palagi."],
+  ["David Wilson", "Reliable and easy to work with. Would hire again without thinking twice."],
+  ["Rico Fernandez", "Dili siya basta nag-follow ug tutorial, kabalo gyud siya unsay iyang gibuhat. Gikan sa simple nga request, gipalapdan pa niya kay naa siyay mas maayong idea."],
+  ["Emily Rodriguez", "We handed Camille a messy lead process and she came back with something that just works — enrichment, scoring, routing, all automatic. Response times dropped almost overnight."],
+  ["Jenny Santos", "Mas organized na ang operations namin, hindi na kami paulit-ulit ng ginagawa."],
+  ["Ryan Cooper", "Stress-free from start to finish."],
+  ["Mae Lim", "Dali ra siya kastorya, kabalo gyud unsay mubuhat sa negosyo."],
+  ["Daniel Scott", "Delivered ahead of schedule and documented everything properly. Rare to find that combination."],
+  ["Carlo Dela Cruz", "Hindi ko inakala na ganoon karami ang matitipid naming oras. 'Yung dating ginagawa ng staff namin buong araw, automated na — parang may extra tao na kami sa team."],
+  ["Olivia Harris", "Great eye for detail, every time."],
+  ["Karen Flores", "Human sa project, gitabangan pa mi sa mga gamay nga adjustments nga wa namo gi-expect."],
+  ["Chris Anderson", "Technical skills and communication — she has both. Not common."],
+  ["Michelle Ramos", "Isa ni sa pinaka-smooth nga experience namo sa pag-hire ug freelancer. Paspas, magaling, ug marunong mo-adjust bisan pa nagbag-o ang among plano sa tunga-tunga."],
+  ["James Carter", "She didn't just build what we asked for — she flagged two other things in our process that were bleeding time and fixed those too. That's the kind of initiative you hope for and rarely get."],
+  ["Bryan Torres", "Grabe ka smooth mag-collaborate. Highly recommended."],
 ].map(([name, text]) => ({ name, text }));
 
 export type Testimonial = {
